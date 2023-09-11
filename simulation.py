@@ -21,10 +21,9 @@ def simulation(
         taxFreeWealth=0
 
 ):
-
     # Initialize
     stocksList = [stocks]
-    wealth = bankDeposits+stocks+bonds+realEstate-debt
+    wealth = bankDeposits + stocks + bonds + realEstate - debt
     wealthList = [wealth]
     taxList = []
 
@@ -65,20 +64,20 @@ def simulation(
         carriedLosses = loss + lossRemaining
 
         # Bought assets
-        withoutTax = 1000
+        withoutTax = 10000
         afterTax = max(withoutTax - tax, 0)
 
         # Sell stocks if not liquid enough
-        stocksSold = min(withoutTax - tax, 0)
+        stocksSold = abs(min(withoutTax - tax, 0))
 
         # Nominal Returns
         bankReturn = 0 / 100
-        stocksReturn = 10 / 100
+        stocksReturn = 1 / 100
         dividend = 0 / 100
         bondsReturn = 0 / 100
         coupon = 0 / 100
-        realEstateReturn = 0/100
-        rent = 0/100
+        realEstateReturn = 0 / 100
+        rent = 0 / 100
 
         # Update previous values
         bankPrev = bankDeposits
@@ -99,3 +98,9 @@ def simulation(
         taxList.append(tax)
 
     return wealthList, taxList, stocksList
+
+
+run_new = simulation(new=True)
+run_old = simulation(new=False)
+print(run_new[1])
+print(run_old[1])
