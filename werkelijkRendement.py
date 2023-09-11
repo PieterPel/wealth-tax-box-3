@@ -1,7 +1,8 @@
 def calculate_new_tax(
         pga=0,
         bankCosts=0,
-        bankBenefit=0,
+        bankValue1=0,
+        bankValue0=0,
         realEstateCosts=0,
         realEstateRent=0,
         realEstateSalesProfit=0,
@@ -26,7 +27,7 @@ def calculate_new_tax(
     # Section 5.2 Result from property and debt
 
     # Article 5.2 Result from bank deposits
-    resultBank = bankBenefit - bankCosts
+    resultBank = bankValue1 - bankValue0 - bankCosts
 
     # Article 5.3 Result from real estate, via art. 3.25
     resultRealEstate = realEstateRent + realEstateSalesProfit - realEstateCosts
