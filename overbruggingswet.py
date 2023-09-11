@@ -43,4 +43,4 @@ def calculate_old_tax(bankDeposits=0,
     # Chapter 8 Heffingskorting
     # For now assume that it all goes to box 1 income
 
-    return tax
+    return tax, 0, 0
